@@ -1,0 +1,1888 @@
+/* =========================================================
+   SYNICON IT SOLUTIONS
+   PREMIUM DIGITAL BUSINESS CARD
+   FULL RESPONSIVE CSS
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #061326;
+    --navy-light: #0b2340;
+    --blue: #3d8bff;
+    --blue-soft: #edf4ff;
+
+    --ink: #111827;
+    --ink-soft: #202a38;
+    --muted: #778191;
+    --muted-light: #98a0ac;
+
+    --line: #e7ecf1;
+    --white: #ffffff;
+    --soft-bg: #f5f7fa;
+
+    --green: #159c57;
+    --red: #e24a43;
+    --email: #c84a59;
+    --purple: #5568d9;
+
+    --card-radius: 32px;
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    padding: 18px 12px;
+
+    font-family: "DM Sans", sans-serif;
+    color: var(--ink);
+
+    background:
+        radial-gradient(
+            circle at 8% 7%,
+            rgba(61, 139, 255, 0.13),
+            transparent 25rem
+        ),
+        radial-gradient(
+            circle at 92% 90%,
+            rgba(8, 24, 45, 0.10),
+            transparent 27rem
+        ),
+        #f2f5f8;
+
+    overflow-x: hidden;
+}
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.page {
+    width: min(100%, 440px);
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card {
+    position: relative;
+
+    width: 100%;
+    overflow: hidden;
+
+    background: var(--white);
+
+    border: 1px solid rgba(10, 25, 45, 0.06);
+    border-radius: var(--card-radius);
+
+    box-shadow:
+        0 30px 80px rgba(7, 20, 38, 0.16),
+        0 8px 24px rgba(7, 20, 38, 0.05);
+
+    animation:
+        cardIn 0.7s
+        cubic-bezier(0.2, 0.8, 0.2, 1)
+        both;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    height: 400px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 72% 32%,
+            rgba(50, 130, 255, 0.34),
+            transparent 12rem
+        ),
+        linear-gradient(
+            145deg,
+            #040d1a 0%,
+            #071a31 54%,
+            #063e82 100%
+        );
+}
+
+
+/* =========================================================
+   BACKGROUND STARS
+========================================================= */
+
+.stars {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.13;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.7) 1px,
+            transparent 1px
+        );
+
+    background-size: 38px 38px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HERO TOP
+========================================================= */
+
+.hero-top {
+    position: absolute;
+    z-index: 20;
+
+    top: 16px;
+    left: 17px;
+    right: 17px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* =========================================================
+   STATUS BADGE
+========================================================= */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    backdrop-filter: blur(14px);
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.15px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #6ee7a2;
+
+    box-shadow:
+        0 0 0 4px rgba(110, 231, 162, 0.10);
+}
+
+
+/* =========================================================
+   SHARE BUTTON
+========================================================= */
+
+.share-top {
+    width: 41px;
+    height: 41px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(14px);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.share-top:hover {
+    transform: translateY(-2px) rotate(5deg);
+
+    background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================================================
+   CHARACTER AREA
+========================================================= */
+
+.character-wrap {
+    position: absolute;
+
+    z-index: 5;
+
+    /*
+       More controlled top/bottom spacing.
+       This prevents the character from touching/cropping.
+    */
+    inset: 48px 0 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CHARACTER IMAGE
+========================================================= */
+
+.character {
+    /*
+       IMPORTANT:
+       Smaller than previous 405px.
+    */
+    width: 345px;
+
+    max-width: 84%;
+    max-height: 340px;
+
+    height: auto;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 22px 25px rgba(0, 0, 0, 0.27)
+        );
+
+    transform-origin: 50% 87%;
+
+    cursor: pointer;
+
+    will-change: transform;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   CHARACTER GLOW
+========================================================= */
+
+.character-aura {
+    position: absolute;
+
+    bottom: 18px;
+
+    width: 250px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(48, 137, 255, 0.18);
+
+    filter: blur(28px);
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   GREETING MESSAGE
+========================================================= */
+
+.greeting {
+    position: absolute;
+
+    z-index: 15;
+
+    right: 14px;
+    top: 76px;
+
+    width: auto;
+    max-width: 155px;
+
+    padding: 10px 12px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.16);
+
+    border-radius:
+        15px
+        15px
+        4px
+        15px;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    backdrop-filter: blur(14px);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+
+    transform:
+        translateY(8px)
+        scale(0.95);
+
+    pointer-events: none;
+}
+
+.greeting strong {
+    display: block;
+
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+.greeting small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: rgba(255, 255, 255, 0.70);
+
+    font-size: 8.5px;
+    line-height: 1.3;
+}
+
+.greeting-dot {
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    margin-right: 5px;
+
+    border-radius: 50%;
+
+    background: #6ee7a2;
+}
+
+
+/* =========================================================
+   SCROLL HINT
+========================================================= */
+
+.scroll-hint {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 0;
+    right: 0;
+    bottom: 13px;
+
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.70);
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+}
+
+.scroll-hint i {
+    margin-left: 5px;
+
+    animation:
+        hint 1.5s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   PROFILE SECTION
+========================================================= */
+
+.profile {
+    padding: 25px 21px 23px;
+}
+
+
+/* =========================================================
+   IDENTITY
+========================================================= */
+
+.identity {
+    text-align: center;
+}
+
+.identity h1 {
+    font-family: "Manrope", sans-serif;
+
+    font-size: 21px;
+    line-height: 1.2;
+
+    letter-spacing: -0.55px;
+
+    font-weight: 800;
+
+    color: var(--ink);
+}
+
+.identity p {
+    margin-top: 7px;
+
+    color: #7c8694;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   VERIFIED
+========================================================= */
+
+.verified {
+    display: inline-grid;
+    place-items: center;
+
+    width: 18px;
+    height: 18px;
+
+    margin-left: 4px;
+
+    border-radius: 50%;
+
+    background: #347ff5;
+
+    color: #ffffff;
+
+    font-size: 8px;
+
+    vertical-align: 2px;
+
+    box-shadow:
+        0 5px 12px rgba(52, 127, 245, 0.22);
+}
+
+
+/* =========================================================
+   TAGLINE
+========================================================= */
+
+.tagline {
+    margin:
+        10px
+        auto
+        18px;
+
+    text-align: center;
+
+    color: #707a88;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.tagline strong {
+    color: var(--ink-soft);
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.actions {
+    display: grid;
+
+    grid-template-columns:
+        1.35fr
+        1fr;
+
+    gap: 10px;
+
+    margin-bottom: 17px;
+}
+
+.action {
+    min-height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border-radius: 15px;
+
+    text-decoration: none;
+
+    border: 0;
+
+    cursor: pointer;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        background 0.22s ease;
+}
+
+.action.primary {
+    color: #ffffff;
+
+    background: #091728;
+
+    box-shadow:
+        0 10px 20px rgba(7, 20, 38, 0.14);
+}
+
+.action.secondary {
+    color: #1d2938;
+
+    background: #f3f6f9;
+
+    border: 1px solid #e7ecf1;
+}
+
+.action:hover {
+    transform: translateY(-2px);
+}
+
+.action.primary:hover {
+    box-shadow:
+        0 14px 26px rgba(7, 20, 38, 0.18);
+}
+
+
+/* =========================================================
+   CONTACT LIST
+========================================================= */
+
+.contact-list {
+    border-top: 1px solid var(--line);
+}
+
+
+/* =========================================================
+   CONTACT ROW
+========================================================= */
+
+.contact {
+    min-height: 66px;
+
+    display: grid;
+
+    grid-template-columns:
+        43px
+        minmax(0, 1fr)
+        16px;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding:
+        9px
+        2px;
+
+    color: inherit;
+
+    text-decoration: none;
+
+    border-bottom:
+        1px solid
+        var(--line);
+
+    transition:
+        background 0.2s ease,
+        padding 0.2s ease;
+}
+
+.contact:hover {
+    background: #fafbfd;
+
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+
+/* =========================================================
+   CONTACT ICON
+========================================================= */
+
+.contact .icon {
+    width: 41px;
+    height: 41px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+}
+
+
+/* Brand / contact icon colors */
+
+.phone {
+    color: #2f6fed;
+    background: #edf4ff;
+}
+
+.whatsapp {
+    color: #159c57;
+    background: #eafaf1;
+}
+
+.email {
+    color: #c84a59;
+    background: #fff0f2;
+}
+
+.website {
+    color: #5568d9;
+    background: #f0f1ff;
+}
+
+.maps {
+    color: #e24a43;
+    background: #fff0ef;
+}
+
+
+/* =========================================================
+   CONTACT TEXT
+========================================================= */
+
+.contact > span:nth-child(2) {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.contact small {
+    color: var(--muted-light);
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.contact strong {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: var(--ink-soft);
+
+    font-size: 12.5px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.arrow {
+    color: #b1bac5;
+
+    font-size: 10px;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+.contact:hover .arrow {
+    transform: translateX(3px);
+
+    color: #64748b;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin:
+        21px
+        0
+        11px;
+
+    color: #707a89;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.section i {
+    height: 1px;
+
+    flex: 1;
+
+    background: var(--line);
+}
+
+
+/* =========================================================
+   SOCIALS
+========================================================= */
+
+.socials {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 10px;
+}
+
+.socials > a {
+    min-height: 50px;
+
+    display: grid;
+
+    grid-template-columns:
+        32px
+        minmax(0, 1fr)
+        14px;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 0 11px;
+
+    border:
+        1px solid
+        #e7ecf1;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    color: #273243;
+
+    text-decoration: none;
+
+    font-size: 11.5px;
+    font-weight: 700;
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.socials > a:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(7, 20, 38, 0.07);
+}
+
+
+/* =========================================================
+   SOCIAL ICON
+========================================================= */
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 9px;
+
+    background: #f6f8fa;
+
+    font-size: 16px;
+}
+
+.instagram i {
+    background:
+        linear-gradient(
+            135deg,
+            #833ab4,
+            #fd1d1d,
+            #fcb045
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.google i {
+    color: #4285f4;
+}
+
+.ext {
+    font-size: 8px;
+
+    color: #a7afba;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 17px;
+
+    color: #a0a8b3;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+.footer > span {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: var(--blue);
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 18px;
+
+    z-index: 30;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        11px
+        15px;
+
+    border-radius: 999px;
+
+    background: #091728;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 15px 35px rgba(7, 20, 38, 0.24);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, 14px);
+
+    transition:
+        opacity 0.28s ease,
+        transform 0.28s ease;
+}
+
+.toast.show {
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+}
+
+.toast i {
+    color: #6ee7a2;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(32px);
+
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s
+        cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   CHARACTER LOAD ANIMATION
+========================================================= */
+
+.wave-ready .character {
+    animation:
+        characterIn
+        1.15s
+        cubic-bezier(0.22, 0.9, 0.25, 1)
+        both;
+}
+
+.wave-ready .greeting {
+    animation:
+        greetingIn
+        0.55s
+        0.45s
+        cubic-bezier(0.2, 0.8, 0.2, 1)
+        both;
+}
+
+.wave-ready .scroll-hint {
+    animation:
+        hintIn
+        0.7s
+        1.1s
+        ease
+        both;
+}
+
+
+/* =========================================================
+   CHARACTER WAVE
+========================================================= */
+
+.wave-ready .character:hover {
+    animation:
+        waveHello
+        0.85s
+        ease-in-out
+        both;
+}
+
+.tap-wave {
+    animation:
+        waveHello
+        0.85s
+        ease-in-out
+        both !important;
+}
+
+
+/* =========================================================
+   KEYFRAMES
+========================================================= */
+
+@keyframes characterIn {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(0.95);
+    }
+
+    65% {
+        opacity: 1;
+
+        transform:
+            translateY(-5px)
+            scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes greetingIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(8px)
+            scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes hintIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes hint {
+
+    0%,
+    100% {
+        transform: translateY(0);
+
+        opacity: 0.65;
+    }
+
+    50% {
+        transform: translateY(4px);
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   WAVE MOTION
+========================================================= */
+
+@keyframes waveHello {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(1);
+    }
+
+    18% {
+        transform:
+            translateY(-5px)
+            rotate(-1.2deg)
+            scale(1.015);
+    }
+
+    36% {
+        transform:
+            translateY(-4px)
+            rotate(1.4deg)
+            scale(1.02);
+    }
+
+    54% {
+        transform:
+            translateY(-3px)
+            rotate(-1.3deg)
+            scale(1.018);
+    }
+
+    72% {
+        transform:
+            translateY(-2px)
+            rotate(1deg)
+            scale(1.015);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   CARD ENTRANCE
+========================================================= */
+
+@keyframes cardIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   TABLET / SMALL DESKTOP
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding:
+            12px
+            9px;
+    }
+
+    .page {
+        width: min(100%, 430px);
+    }
+
+    .hero {
+        height: 390px;
+    }
+
+    .character-wrap {
+        inset:
+            48px
+            0
+            22px;
+    }
+
+    .character {
+        width: 330px;
+        max-width: 82%;
+        max-height: 325px;
+    }
+
+    .character-aura {
+        width: 230px;
+        height: 60px;
+    }
+
+    .greeting {
+        top: 72px;
+
+        max-width: 145px;
+
+        padding:
+            9px
+            11px;
+    }
+
+    .profile {
+        padding:
+            23px
+            18px
+            21px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    body {
+        padding:
+            8px
+            7px;
+    }
+
+    .page {
+        width: 100%;
+    }
+
+    .card {
+        border-radius: 27px;
+
+        box-shadow:
+            0 20px 50px rgba(7, 20, 38, 0.15);
+    }
+
+    .hero {
+        height: 365px;
+
+        border-radius:
+            27px
+            27px
+            0
+            0;
+    }
+
+    .hero-top {
+        top: 13px;
+
+        left: 13px;
+        right: 13px;
+    }
+
+    .badge {
+        padding:
+            8px
+            10px;
+
+        font-size: 8px;
+
+        letter-spacing: 0.9px;
+    }
+
+    .share-top {
+        width: 38px;
+        height: 38px;
+    }
+
+    .character-wrap {
+        inset:
+            47px
+            0
+            20px;
+    }
+
+    /*
+       IMPORTANT MOBILE CHARACTER SIZE
+       This keeps full character visible.
+    */
+    .character {
+        width: 295px;
+
+        max-width: 78%;
+
+        max-height: 305px;
+
+        object-fit: contain;
+    }
+
+    .character-aura {
+        width: 200px;
+        height: 52px;
+
+        bottom: 15px;
+    }
+
+    .greeting {
+        top: 66px;
+        right: 11px;
+
+        max-width: 132px;
+
+        padding:
+            8px
+            10px;
+
+        border-radius:
+            13px
+            13px
+            4px
+            13px;
+    }
+
+    .greeting strong {
+        font-size: 10px;
+    }
+
+    .greeting small {
+        font-size: 8px;
+    }
+
+    .scroll-hint {
+        bottom: 11px;
+
+        font-size: 7px;
+
+        letter-spacing: 1.4px;
+    }
+
+    .profile {
+        padding:
+            22px
+            15px
+            20px;
+    }
+
+    .identity h1 {
+        font-size: 19px;
+
+        letter-spacing: -0.4px;
+    }
+
+    .identity p {
+        font-size: 11px;
+    }
+
+    .tagline {
+        margin:
+            9px
+            auto
+            16px;
+
+        font-size: 12px;
+    }
+
+    .actions {
+        gap: 8px;
+
+        margin-bottom: 15px;
+    }
+
+    .action {
+        min-height: 47px;
+
+        border-radius: 13px;
+
+        gap: 7px;
+
+        font-size: 12px;
+    }
+
+    .contact {
+        min-height: 62px;
+
+        grid-template-columns:
+            39px
+            minmax(0, 1fr)
+            13px;
+
+        gap: 9px;
+
+        padding:
+            8px
+            1px;
+    }
+
+    .contact .icon {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 11px;
+
+        font-size: 15px;
+    }
+
+    .contact small {
+        font-size: 9px;
+    }
+
+    .contact strong {
+        font-size: 11.5px;
+    }
+
+    .arrow {
+        font-size: 8px;
+    }
+
+    .section {
+        margin:
+            18px
+            0
+            10px;
+
+        font-size: 9px;
+    }
+
+    .socials {
+        gap: 8px;
+    }
+
+    .socials > a {
+        min-height: 46px;
+
+        grid-template-columns:
+            29px
+            minmax(0, 1fr)
+            11px;
+
+        gap: 6px;
+
+        padding:
+            0
+            8px;
+
+        border-radius: 12px;
+
+        font-size: 10.5px;
+    }
+
+    .social-icon {
+        width: 28px;
+        height: 28px;
+
+        border-radius: 8px;
+
+        font-size: 14px;
+    }
+
+    .footer {
+        margin-top: 15px;
+
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    body {
+        padding:
+            5px;
+    }
+
+    .card {
+        border-radius: 24px;
+    }
+
+    .hero {
+        height: 345px;
+    }
+
+    .character-wrap {
+        inset:
+            45px
+            0
+            18px;
+    }
+
+    .character {
+        width: 275px;
+
+        max-width: 77%;
+
+        max-height: 290px;
+    }
+
+    .greeting {
+        top: 62px;
+        right: 8px;
+
+        max-width: 120px;
+    }
+
+    .profile {
+        padding:
+            20px
+            12px
+            18px;
+    }
+
+    .identity h1 {
+        font-size: 18px;
+    }
+
+    .contact {
+        grid-template-columns:
+            37px
+            minmax(0, 1fr)
+            11px;
+
+        gap: 8px;
+    }
+
+    .contact .icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .contact strong {
+        font-size: 11px;
+    }
+
+    .socials > a {
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+
+        transition: none !important;
+
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+
+        transform: none;
+    }
+}
+
+/* =========================================================
+   FINAL POLISH — CONSISTENT BRAND ICON SYSTEM
+   All contact/social logos use one SYNICON colour family.
+========================================================= */
+
+.contact .icon,
+.social-icon {
+    color: var(--navy) !important;
+    background:
+        linear-gradient(145deg, #f4f8ff 0%, #eaf1fb 100%) !important;
+    border: 1px solid rgba(61, 139, 255, 0.12);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.9),
+        0 5px 12px rgba(6,19,38,.05);
+}
+
+.contact .icon i,
+.social-icon i {
+    color: var(--blue) !important;
+    -webkit-text-fill-color: var(--blue) !important;
+    background: none !important;
+}
+
+.contact:hover .icon,
+.socials > a:hover .social-icon {
+    background:
+        linear-gradient(145deg, #eef5ff 0%, #e1ecfb 100%) !important;
+    border-color: rgba(61, 139, 255, 0.22);
+}
+
+.socials > a {
+    border-color: rgba(10, 25, 45, 0.08);
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
+}
+
+.socials > a:hover {
+    border-color: rgba(61, 139, 255, 0.18);
+}
+
+.ext {
+    color: #9aa7b8 !important;
+}
+
+/* Better touch feedback on mobile */
+@media (hover: none) {
+    .contact:active,
+    .socials > a:active,
+    .action:active {
+        transform: scale(.985);
+    }
+}
+
+
+
+/* =========================================================
+   SB INTERIORS — CENTER CIRCLE PHOTO HERO
+   ========================================================= */
+
+.hero-photo {
+    position: absolute;
+    z-index: 8;
+
+    left: 50%;
+    top: 50%;
+
+    width: 210px;
+    height: 210px;
+
+    transform: translate(-50%, -47%);
+
+    display: grid;
+    place-items: center;
+
+    pointer-events: none;
+}
+
+/* Soft glow behind the photo */
+.hero-photo::before {
+    content: "";
+
+    position: absolute;
+    inset: -28px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(61, 139, 255, 0.30) 0%,
+            rgba(61, 139, 255, 0.12) 38%,
+            transparent 72%
+        );
+
+    filter: blur(8px);
+
+    z-index: -2;
+}
+
+/* Outer premium ring */
+.hero-photo-ring {
+    width: 100%;
+    height: 100%;
+
+    padding: 7px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            rgba(255,255,255,.75) 42%,
+            rgba(61,139,255,.55) 100%
+        );
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.32),
+        0 0 0 1px rgba(255,255,255,.18),
+        inset 0 1px 0 rgba(255,255,255,.95);
+
+    overflow: hidden;
+
+    animation:
+        heroPhotoIn .9s
+        cubic-bezier(.2,.8,.2,1)
+        both;
+}
+
+/* Actual circular image */
+.hero-photo-ring img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+    object-position: center;
+
+    border: 3px solid rgba(255,255,255,.88);
+
+    background: #071a31;
+}
+
+/* Small decorative ring */
+.hero-photo-ring::after {
+    content: "";
+
+    position: absolute;
+
+    width: calc(100% - 14px);
+    height: calc(100% - 14px);
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.20);
+
+    pointer-events: none;
+}
+
+/* Remove the old character system completely */
+.character-wrap,
+.character-aura {
+    display: none !important;
+}
+
+/* Photo entrance */
+@keyframes heroPhotoIn {
+    from {
+        opacity: 0;
+        transform: scale(.88) translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* =========================================================
+   MOBILE — CENTER CIRCLE PHOTO
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+    .hero-photo {
+        width: 175px;
+        height: 175px;
+
+        top: 50%;
+
+        transform: translate(-50%, -46%);
+    }
+
+    .hero-photo-ring {
+        padding: 6px;
+
+        box-shadow:
+            0 15px 35px rgba(0,0,0,.30),
+            0 0 0 1px rgba(255,255,255,.16),
+            inset 0 1px 0 rgba(255,255,255,.95);
+    }
+
+    .hero-photo-ring img {
+        border-width: 2px;
+    }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .hero-photo {
+        width: 150px;
+        height: 150px;
+
+        transform: translate(-50%, -45%);
+    }
+
+    .hero-photo::before {
+        inset: -20px;
+    }
+
+    .hero-photo-ring {
+        padding: 5px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-photo-ring {
+        animation: none !important;
+    }
+}
+
+
+/* =========================================================
+   INSTAGRAM BRAND COLOR
+========================================================= */
+
+.socials > a .social-icon.instagram {
+    background:
+        linear-gradient(
+            135deg,
+            #833ab4,
+            #fd1d1d,
+            #fcb045
+        ) !important;
+
+    color: #ffffff !important;
+}
+
+
+.socials > a .social-icon.instagram i {
+    color: #ffffff !important;
+
+    -webkit-text-fill-color: #ffffff !important;
+
+    background: none !important;
+}
